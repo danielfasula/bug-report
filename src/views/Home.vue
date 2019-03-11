@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+   <div class="home container-fluid">
+      <div class="row">
+        <div class="col">
+          <h1 class="text-center text-success">Codeworks BugLog</h1>
+        </div>
+      </div>
+   <div class="row">
+      <bug-form></bug-form>
+   </div>
+   <div class="row">
+      <listOfBugs></listOfBugs>
+   </div>
+   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import BugForm from '@/components/BugForm.vue'
+import ListOfBugs from '@/components/ListOfBugs.vue'
+import BugDetails from '@/components/BugDetails.vue'
+
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+   name: "home",
+   props: [],
+   data() {
+      return {}
+   },
+   computed: {
+      bugs() {
+         return this.$store.state.bugs
+      },
+   },
+   methods: {},
+   components: {
+      BugForm,
+      ListOfBugs,
+      BugDetails,
+   }
 }
 </script>
